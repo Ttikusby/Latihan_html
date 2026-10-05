@@ -30,11 +30,19 @@ table {
 
 th, td {
     border: 1px solid black;
-    padding: 8px;
+    padding: 5px;
+    text-align: left;
 }
 
 th {
-    background-color: #eee;
+    background-color: white;
+    font-weight: bold;
+}
+
+/* Tabel jadwal */
+.tabel-jadwal th,
+.tabel-jadwal td {
+    text-align: center;
 }
 
 input {
