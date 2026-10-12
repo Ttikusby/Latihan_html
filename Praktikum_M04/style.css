@@ -159,7 +159,7 @@ body {
 
 .collections {
     padding: 70px 8%;
-    text-align: center;
+    text-align: left;
     background-color: #f5f7fa;
 }
 
@@ -185,7 +185,7 @@ body {
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    text-align: left;
+    text-align: center;
 }
 
 .product-card img {
@@ -207,7 +207,7 @@ body {
 
 .about {
     padding: 60px 8%;
-    text-align: center;
+    text-align: left;
     line-height: 1.8;
 }
 
