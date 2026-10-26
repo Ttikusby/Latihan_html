@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Bermain dengan Warna</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eff7ff;
+            text-align: center;
+            margin: 0;
+            padding: 32px 20px;
+        }
+
+        h1 {
+            font-size: 27px;
+            color: #333;
+            margin-bottom: 27px;
+        }
+
+        button {
+            border: none;
+            padding: 9px 17px;
+            margin: 0 7px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        #ungu {
+            background-color: #7738ed;
+            color: white;
+        }
+
+        #biru {
+            background-color: #2860ed;
+            color: white;
+        }
+
+        #hijau {
+            background-color: #16803d;
+            color: white;
+        }
+
+        #kotak {
+            width: 166px;
+            height: 166px;
+            background-color: #16803d;
+            border: 3px solid #333;
+            border-radius: 9px;
+            margin: 25px auto;
+        }
+
+        .tombol-kotak {
+            background-color: #eeeeee;
+            color: black;
+            padding: 9px 17px;
+        }
+
+        p {
+            font-size: 14px;
+            margin-top: 22px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bermain dengan Warna</h1>
+
+    <div>
+        <button id="ungu">Ungu</button>
+        <button id="biru">Biru</button>
+        <button id="hijau">Hijau</button>
+    </div>
+
+    <div id="kotak"></div>
+
+    <div>
+        <button class="tombol-kotak" id="sembunyikan">
+            Sembunyikan Kotak
+        </button>
+
+        <button class="tombol-kotak" id="tampilkan">
+            Tampilkan Kotak
+        </button>
+    </div>
+
+    <p>Klik tombol warna untuk mengubah warna kotak.</p>
+
+    <p>Gunakan tombol Sembunyikan dan Tampilkan untuk menyembunyikan dan menampilkan kotak.</p>
+
+    <script>
+        $(document).ready(function() {
+            $("#ungu").click(function() {
+                $("#kotak").css("background-color", "purple");
+            });
+
+            $("#biru").click(function() {
+                $("#kotak").css("background-color", "blue");
+            });
+
+            $("#hijau").click(function() {
+                $("#kotak").css("background-color", "green");
+            });
+
+            $("#sembunyikan").click(function() {
+                $("#kotak").hide();
+            });
+
+            $("#tampilkan").click(function() {
+                $("#kotak").show();
+            });
+        });
+    </script>
+
+</body>
+</html>
