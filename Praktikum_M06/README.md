@@ -14,7 +14,7 @@ jQuery adalah library JavaScript yang digunakan untuk mempermudah penulisan kode
 ### Soal 3 
 Perbedaan JavaScript dan jQuery terletak pada pengertian dan cara penggunaannya. JavaScript merupakan bahasa pemrograman yang dapat digunakan secara langsung untuk membuat halaman web menjadi interaktif, sedangkan jQuery merupakan library yang dibangun menggunakan JavaScript untuk mempermudah penulisan kode. Contohnya, JavaScript dapat menggunakan document.getElementById() untuk memilih elemen HTML berdasarkan ID, sedangkan jQuery menggunakan sintaks $("#id"). Keduanya dapat digunakan untuk mengatur tampilan dan interaksi website, tetapi jQuery menyediakan cara penulisan yang lebih ringkas untuk berbagai operasi tertentu.
 
-### Soal 4 - Input Nama dan NIM Menggunakan JavaScript
+### Soal 4 
 
 Program pada file `soal1.html` menggunakan fungsi `prompt()` untuk meminta nama dan NIM pengguna ketika halaman web dibuka. Setelah pengguna memasukkan kedua data tersebut, JavaScript menampilkan nama dan NIM pada halaman web.
 
@@ -35,17 +35,17 @@ Fungsi `document.getElementById()` digunakan untuk memilih elemen HTML berdasark
 ![Output Soal 4](data.png)
 
 
-### Soal 5 — Interaksi Warna Menggunakan jQuery
+### Soal 5 
 
 Program pada file `soal2.html` membuat halaman web interaktif dengan judul *Bermain dengan Warna*. Halaman ini memiliki tiga tombol warna, yaitu Ungu, Biru, dan Hijau, serta tombol untuk menyembunyikan dan menampilkan kotak.
 
 Fungsi yang digunakan antara lain:
 
-- `.click()` untuk menjalankan perintah ketika tombol diklik.
-- `.css()` untuk mengubah warna latar belakang kotak.
-- `.hide()` untuk menyembunyikan kotak.
-- `.show()` untuk menampilkan kotak kembali.
-- `$(document).ready()` untuk menjalankan kode setelah struktur halaman HTML siap.
+- .click() untuk menjalankan perintah ketika tombol diklik.
+- .css() untuk mengubah warna latar belakang kotak.
+- .hide() untuk menyembunyikan kotak.
+- .show() untuk menampilkan kotak kembali.
+- $(document).ready() untuk menjalankan kode setelah struktur halaman HTML siap.
 
 ### Output Warna
 
