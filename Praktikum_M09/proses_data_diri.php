@@ -1,17 +1,16 @@
 
 <?php
 
-// 1. Memeriksa metode pengiriman data
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // 2. Mengambil data dari form HTML
     $nama = trim($_POST["nama"] ?? "");
     $tanggal_lahir = $_POST["tanggal_lahir"] ?? "";
 
-    // 3. Mengambil pilihan hobi
     $hobi = $_POST["hobi"] ?? [];
 
-    // 4. Mengubah format tanggal menjadi bahasa Indonesia
+    if ($nama === "") {
+        die("Nama lengkap wajib diisi.");
+    }
 
     $bulan = [
         1 => "Januari",
@@ -48,8 +47,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                          $bulan[$nomor_bulan] . " " .
                          $tahun;
 
-    // 5. Menggabungkan pilihan hobi
-
     $daftar_hobi = [
         "Membaca",
         "Olahraga",
@@ -57,7 +54,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         "Lainnya"
     ];
 
-    // Memastikan hobi yang diterima sesuai pilihan form
+    if (!is_array($hobi)) {
+        $hobi = [];
+    }
+
     $hobi = array_intersect($daftar_hobi, $hobi);
 
     if (count($hobi) > 0) {
@@ -66,8 +66,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hasil_hobi = "Tidak ada hobi yang dipilih";
     }
 
+    $koneksi = new mysqli(
+        "localhost",
+        "root",
+        "",
+        "praktikum_m09"
+    );
+
+    if ($koneksi->connect_error) {
+        die("Koneksi database gagal: " .
+            $koneksi->connect_error);
+    }
+
+    $sql = "INSERT INTO data_diri
+            (nama_lengkap, tanggal_lahir, hobi)
+            VALUES (?, ?, ?)";
+
+    $stmt = $koneksi->prepare($sql);
+
+    $stmt->bind_param(
+        "sss",
+        $nama,
+        $tanggal_lahir,
+        $hasil_hobi
+    );
+
+    if (!$stmt->execute()) {
+        die("Data gagal disimpan: " . $stmt->error);
+    }
+
+    $stmt->close();
+    $koneksi->close();
+
 } else {
-    // Jika halaman dibuka tanpa mengirim form
     header("Location: form_data_diri.html");
     exit;
 }
@@ -155,7 +186,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="label">Tanggal Lahir:</div>
 
             <div class="isi">
-                <?= htmlspecialchars($tanggal_indonesia) ?>
+                <?= htmlspecialchars($tanggal_indonesia, ENT_QUOTES, 'UTF-8') ?>
             </div>
         </div>
 
@@ -163,9 +194,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="label">Hobi:</div>
 
             <div class="isi">
-                <?= htmlspecialchars($hasil_hobi) ?>
+                <?= htmlspecialchars($hasil_hobi, ENT_QUOTES, 'UTF-8') ?>
             </div>
         </div>
+
+        <p><strong>Status:</strong> Data berhasil disimpan!</p>
 
         <a href="form_data_diri.html">
             &laquo; Kembali ke Form
