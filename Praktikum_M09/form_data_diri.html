@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Data Diri</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+            margin: 30px auto;
+            padding: 25px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        h2 {
+            font-size: 22px;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"],
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .hobi label {
+            display: block;
+            font-weight: normal;
+            margin-bottom: 8px;
+        }
+
+        button {
+            background-color: #087bdb;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0566b8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Formulir Data Diri</h2>
+
+        <form action="proses_data_diri.php" method="POST">
+
+            <!-- Input Nama Lengkap -->
+            <div class="form-group">
+                <label for="nama">Nama Lengkap:</label>
+                <input
+                    type="text"
+                    id="nama"
+                    name="nama"
+                    placeholder="Masukkan nama lengkap"
+                    required
+                >
+            </div>
+
+            <!-- Input Tanggal Lahir -->
+            <div class="form-group">
+                <label for="tanggal_lahir">Tanggal Lahir:</label>
+                <input
+                    type="date"
+                    id="tanggal_lahir"
+                    name="tanggal_lahir"
+                    required
+                >
+            </div>
+
+            <!-- Pilihan Hobi -->
+            <div class="form-group hobi">
+
+                <label>Hobi:</label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="hobi[]"
+                        value="Membaca"
+                    >
+                    Membaca
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="hobi[]"
+                        value="Olahraga"
+                    >
+                    Olahraga
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="hobi[]"
+                        value="Musik"
+                    >
+                    Musik
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="hobi[]"
+                        value="Lainnya"
+                    >
+                    Lainnya
+                </label>
+
+            </div>
+
+            <!-- Tombol Kirim -->
+            <button type="submit">Kirim</button>
+
+        </form>
+
+    </div>
+
+</body>
+</html>
